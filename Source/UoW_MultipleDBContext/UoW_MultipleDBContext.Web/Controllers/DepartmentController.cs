@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Service.Infrastructure.Interface;
+using UoW_MultipleDBContext.Service.DepartmentService;
 using UoW_MultipleDBContext.Web.Models;
 
 namespace UoW_MultipleDBContext.Web.Controllers

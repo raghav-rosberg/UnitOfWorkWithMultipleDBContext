@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\CategoryService.cs" />
-    <Compile Include="Infrastructure\DepartmentService.cs" />
-    <Compile Include="Infrastructure\Interface\ICategoryService.cs" />
-    <Compile Include="Infrastructure\Interface\IDepartmentService.cs" />
+    <Compile Include="CategoryService\CategoryService.cs" />
+    <Compile Include="DepartmentService\DepartmentService.cs" />
+    <Compile Include="CategoryService\ICategoryService.cs" />
+    <Compile Include="DepartmentService\IDepartmentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

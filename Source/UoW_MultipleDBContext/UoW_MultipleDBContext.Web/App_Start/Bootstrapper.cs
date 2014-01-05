@@ -4,8 +4,8 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using UoW_MultipleDBContext.Data.Infrastructure;
 using UoW_MultipleDBContext.Data.UnitOfWork;
-using UoW_MultipleDBContext.Service.Infrastructure;
-using UoW_MultipleDBContext.Service.Infrastructure.Interface;
+using UoW_MultipleDBContext.Service.DepartmentService;
+using UoW_MultipleDBContext.Service.CategoryService;
 using UoW_MultipleDBContext.Web.Mappings;
 
 namespace UoW_MultipleDBContext.Web
