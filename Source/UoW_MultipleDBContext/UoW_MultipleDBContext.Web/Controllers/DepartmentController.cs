@@ -21,9 +21,9 @@ namespace UoW_MultipleDBContext.Web.Controllers
 
         public ActionResult Index()
         {
-            var departments = _departmentService.GetAll().ToList();
-            var categoryModelList = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentModel>>(departments);
-            return View(categoryModelList);
+            var departments = _departmentService.GetAll();
+            var departmentModelList = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentModel>>(departments);
+            return View(departmentModelList);
         }
 
         //

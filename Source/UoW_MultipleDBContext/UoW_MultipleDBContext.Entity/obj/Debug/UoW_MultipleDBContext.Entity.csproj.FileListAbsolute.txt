@@ -11,3 +11,7 @@ E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_Multi
 E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.csprojResolveAssemblyReference.cache
 E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.dll
 E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.pdb
+I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\UoW_MultipleDBContext.Entity.dll
+I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\UoW_MultipleDBContext.Entity.pdb
+I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.dll
+I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.pdb

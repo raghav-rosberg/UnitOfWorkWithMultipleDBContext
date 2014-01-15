@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Entit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Service", "UoW_MultipleDBContext.Service\UoW_MultipleDBContext.Service.csproj", "{FF313663-81B3-4711-880C-1D12D46E09C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests", "UoW_MultipleDBContext.Tests\UoW_MultipleDBContext.Tests.csproj", "{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{FF313663-81B3-4711-880C-1D12D46E09C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF313663-81B3-4711-880C-1D12D46E09C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF313663-81B3-4711-880C-1D12D46E09C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

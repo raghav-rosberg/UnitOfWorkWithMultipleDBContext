@@ -22,7 +22,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
 
         public ActionResult Index()
         {
-            var cagetories = _categoryService.GetAll().ToList();
+            var cagetories = _categoryService.GetAll();
             var categoryModelList = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(cagetories);
             return View(categoryModelList);
         }
