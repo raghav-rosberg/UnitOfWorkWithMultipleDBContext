@@ -3,6 +3,17 @@ Unit Of Work With Multiple DBContexts
 
 A MVC 5 application with Automapper, EF 6, repository pattern, dependency injection using Autofac which uses one unit of work to deal with multiple dbcontexts.
 
+Features:
+-------------
+- Entity Framework 6
+- MVC 5
+- Autofac
+- AutoMapper
+- Unit Of Work with multiple DBContexts
+- Repository Pattern
+- Service layer
+- Code First approach
+
 This application's design pattern overcomes most of the redundant code while creating repositories and resolves a unit of work with multiple contexts.
 
 Dos while creating repositories:
