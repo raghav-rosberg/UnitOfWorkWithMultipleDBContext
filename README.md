@@ -27,7 +27,7 @@ Don'ts while creating repositories for unit of work:
 - Do not create multiple repository interface and repository classes which is not required.
 - Do not associate or inject your DBContext object to your generic repository class. Get the DBContext reference from Unit of work class.
 
-Good way of designing you Service layer:
+Good way of designing your service layer:
 --------------------------------------------------------
 - Create one service class for one controller.
 - Have an individual interface for each service class.
