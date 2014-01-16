@@ -17,7 +17,8 @@ Features:
 Instructions:
 -----------------
 - Please alter connection strings in the application's webconfig file.
-- Go to package manager console -> select UoW_MultipleDBContext.Data and execute the command 'update-database -verbose'
+- Go to package manager console -> select UoW_MultipleDBContext.Data and execute the command 'update-database -verbose'.
+
 -------------------------------------------
 
 This application's design pattern overcomes most of the redundant code while creating repositories and resolves a unit of work with multiple Dbcontexts.
