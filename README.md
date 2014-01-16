@@ -14,6 +14,10 @@ Features:
 - Service layer
 - Code First approach
 
+Instructions:
+-----------------
+Please alter connection strings in the application's webconfig file.
+
 This application's design pattern overcomes most of the redundant code while creating repositories and resolves a unit of work with multiple contexts.
 
 Dos while creating repositories:
