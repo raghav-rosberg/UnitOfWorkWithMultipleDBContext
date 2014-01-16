@@ -26,7 +26,7 @@ Dos while creating repositories:
 -------------------------------------------
 - Create a generic repository class and generic repository interface which exposes common functions to each entity.
 - Initialize a generic repository's local DBContext object through its constructor.
-- Set this DBContext's entities set in the generic repository's local entities set object for operations performed on them.
+- Set this DBContext's entities-set in to the generic repository's local entities-set object.
 
 Don'ts while creating repositories for unit of work:
 -------------------------------------------------------------------
@@ -36,8 +36,9 @@ Don'ts while creating repositories for unit of work:
 Good way of designing your service layer:
 --------------------------------------------------------
 - Create one service class for one controller.
-- Have an individual interface for each service class.
-- Inject unit of work objects corresponding to its DBContext.
+- Have an individual interface for each service class - Which helps customizing functions related to its service.
+- Inherit generic repository interface to the service interface - Which forces the service class to expand all the functions in generic interface.
+- Inject unit of work objects corresponding to its DBContext in the service constructor.
 - Access repositories through Unit of Work object.
 - Commit all the transactions corresponding to a DBContext once with its Unit of Work object.
 - In the controller inject only its related service object and call its functions for further operations.
