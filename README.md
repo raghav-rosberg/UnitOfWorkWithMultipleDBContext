@@ -20,7 +20,7 @@ Please alter connection strings in the application's webconfig file.
 
 -------------------------------------------
 
-This application's design pattern overcomes most of the redundant code while creating repositories and resolves a unit of work with multiple contexts.
+This application's design pattern overcomes most of the redundant code while creating repositories and resolves a unit of work with multiple Dbcontexts.
 
 Dos while creating repositories:
 -------------------------------------------
