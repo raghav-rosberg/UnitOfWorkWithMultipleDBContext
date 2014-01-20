@@ -38,7 +38,7 @@ Good way of designing your service layer:
 --------------------------------------------------------
 - Create one service class for one controller.
 - Have an individual interface for each service class - Which helps customizing functions related to its service.
-- Inherit generic repository interface to the service interface - Which forces the service class to expand all the functions in generic interface.
+- Inherit generic repository interface to the service interface - Which forces the service class to expand all the methods in generic interface (optional).
 - Inject unit of work objects corresponding to its DBContext in the service constructor.
 - Access repositories through Unit of Work object.
 - Commit all the transactions corresponding to a DBContext once with its Unit of Work object.
