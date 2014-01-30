@@ -13,7 +13,7 @@ Features:
 - Generic Repository
 - Service layer
 - Code First approach
-- Power of repository extentions
+- Power of repository extensibility
 
 Instructions:
 -----------------
