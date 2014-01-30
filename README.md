@@ -14,6 +14,8 @@ Features:
 - Service layer
 - Code First approach
 - Power of repository extensibility
+- NUnit
+- Moq
 
 Instructions:
 -----------------
