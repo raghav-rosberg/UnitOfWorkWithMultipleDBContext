@@ -10,9 +10,10 @@ Features:
 - Dependency Injection and IOC using Autofac
 - AutoMapper
 - Unit Of Work with multiple DBContexts
-- Repository Pattern
+- Generic Repository
 - Service layer
 - Code First approach
+- Power of repository extentions
 
 Instructions:
 -----------------
@@ -26,12 +27,13 @@ This application's design pattern overcomes most of the redundant code while cre
 Dos while creating repositories:
 -------------------------------------------
 - Create a generic repository class and generic repository interface which exposes common functions to each entity.
+- Create individual repository classes which extends generic repository with additional functions of its interface where ever it is required.
 - Initialize a generic repository's local DBContext object through its constructor.
 - Set this DBContext's entities-set in to the generic repository's local entities-set object.
 
 Don'ts while creating repositories for unit of work:
 -------------------------------------------------------------------
-- Do not create multiple repository interface and repository classes which is not required.
+- Do not create multiple repository interface and repository classes for all the repositories which is not required.
 - Do not associate or inject your DBContext object to your generic repository class. Get the DBContext reference from Unit of work class.
 
 Good way of designing your service layer:
