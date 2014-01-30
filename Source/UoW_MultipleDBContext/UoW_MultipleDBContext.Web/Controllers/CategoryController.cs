@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using UoW_MultipleDBContext.Entity;
+using UoW_MultipleDBContext.Entity.Custom;
 using UoW_MultipleDBContext.Service.CategoryService;
 using UoW_MultipleDBContext.Web.Models;
 
@@ -24,6 +25,15 @@ namespace UoW_MultipleDBContext.Web.Controllers
             var cagetories = _categoryService.GetAll().ToList();
             var categoryModelList = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(cagetories);
             return View(categoryModelList);
+        }
+
+        // GET: /CategoryWithExpenses/
+
+        public ActionResult CategoryWithExpenses()
+        {
+            var categoryWithExpense = _categoryService.GetCategoryWithExpenses();
+            var categoryWithExpenseModelList = Mapper.Map<IEnumerable<CategoryWithExpense>, IEnumerable<CategoryWithExpenseModel>>(categoryWithExpense);
+            return View(categoryWithExpenseModelList);
         }
 
         //

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UoW_MultipleDBContext.Data.DBContexts;
-using UoW_MultipleDBContext.Data.Infrastructure;
 using UoW_MultipleDBContext.Data.UnitOfWork;
 using UoW_MultipleDBContext.Entity;
+using UoW_MultipleDBContext.Entity.Custom;
 
 namespace UoW_MultipleDBContext.Service.CategoryService
 {
@@ -26,6 +26,11 @@ namespace UoW_MultipleDBContext.Service.CategoryService
         public Category GetById(int id)
         {
             return _unitOfWork.CategoryRepository.GetById(id);
+        }
+
+        public IEnumerable<CategoryWithExpense> GetCategoryWithExpenses()
+        {
+            return _unitOfWork.CategoryRepository.GetCategoryWithExpenses();
         }
 
         public void Insert(Category entity)

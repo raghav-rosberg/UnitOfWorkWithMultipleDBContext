@@ -22,3 +22,15 @@ C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContex
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.csprojResolveAssemblyReference.cache
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.dll
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\UoW_MultipleDBContext.Data.dll.config
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\UoW_MultipleDBContext.Data.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\UoW_MultipleDBContext.Data.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\EntityFramework.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\UoW_MultipleDBContext.Entity.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\UoW_MultipleDBContext.Entity.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\EntityFramework.xml
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.csprojResolveAssemblyReference.cache
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Data\obj\Debug\UoW_MultipleDBContext.Data.pdb

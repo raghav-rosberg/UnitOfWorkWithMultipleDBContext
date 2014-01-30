@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
 using UoW_MultipleDBContext.Data.Infrastructure;
+using UoW_MultipleDBContext.Data.Repositories;
+using UoW_MultipleDBContext.Data.Repositories.Interface;
 using UoW_MultipleDBContext.Entity;
 
 namespace UoW_MultipleDBContext.Data.UnitOfWork
@@ -28,14 +30,13 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
         /// <summary>
         /// Define Repositories
         /// </summary>
-        private IRepository<Category> _categoryRepository;
-        private IRepository<Department> _departmentRepository;
-
-        public IRepository<Category> CategoryRepository
+        private ICategoryRepository _categoryRepository;
+        public ICategoryRepository CategoryRepository
         {
-            get { return _categoryRepository ?? (_categoryRepository = new RepositoryBase<Category>(_dataContext)); }
+            get { return _categoryRepository ?? (_categoryRepository = new CategoryRepository(_dataContext)); }
         }
 
+        private IRepository<Department> _departmentRepository;
         public IRepository<Department> DepartmentRepository
         {
             get

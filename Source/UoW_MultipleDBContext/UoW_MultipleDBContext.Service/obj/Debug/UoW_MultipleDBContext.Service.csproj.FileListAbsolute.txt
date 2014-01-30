@@ -26,3 +26,17 @@ C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContex
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.csprojResolveAssemblyReference.cache
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.dll
 C:\Users\raghavendran\Documents\visual studio 2012\Projects\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Service.dll.config
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Service.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Service.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\EntityFramework.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Data.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Entity.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Data.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\UoW_MultipleDBContext.Entity.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\EntityFramework.xml
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.csprojResolveAssemblyReference.cache
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.dll
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Service\obj\Debug\UoW_MultipleDBContext.Service.pdb

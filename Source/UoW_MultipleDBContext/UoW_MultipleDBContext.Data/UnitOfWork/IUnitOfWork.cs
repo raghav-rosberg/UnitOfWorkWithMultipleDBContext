@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using UoW_MultipleDBContext.Data.Infrastructure;
+using UoW_MultipleDBContext.Data.Repositories.Interface;
 using UoW_MultipleDBContext.Entity;
 
 namespace UoW_MultipleDBContext.Data.UnitOfWork
@@ -12,7 +13,7 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
         /// <summary>
         /// Repository intefaces
         /// </summary>
-        IRepository<Category> CategoryRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
         IRepository<Department> DepartmentRepository { get; }
     }
 }
