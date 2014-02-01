@@ -54,6 +54,10 @@
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -72,6 +76,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\ApiControllerTests.cs" />
     <Compile Include="Controllers\WebControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +95,10 @@
     <ProjectReference Include="..\UoW_MultipleDBContext.Service\UoW_MultipleDBContext.Service.csproj">
       <Project>{ff313663-81b3-4711-880c-1d12d46e09c0}</Project>
       <Name>UoW_MultipleDBContext.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoW_MultipleDBContext.Web.API\UoW_MultipleDBContext.Web.API.csproj">
+      <Project>{112f2dd9-ed16-40c2-9b34-5a5db61287ee}</Project>
+      <Name>UoW_MultipleDBContext.Web.API</Name>
     </ProjectReference>
     <ProjectReference Include="..\UoW_MultipleDBContext.Web\UoW_MultipleDBContext.Web.csproj">
       <Project>{faac9e56-daf0-4cd4-b385-80013fb2fb3a}</Project>

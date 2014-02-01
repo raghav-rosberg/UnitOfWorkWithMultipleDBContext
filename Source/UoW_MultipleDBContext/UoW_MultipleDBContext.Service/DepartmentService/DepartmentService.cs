@@ -41,6 +41,11 @@ namespace UoW_MultipleDBContext.Service.DepartmentService
             _unitOfWork.Commit();
         }
 
+        public void Delete(int id)
+        {
+            _unitOfWork.DepartmentRepository.GetById(id);
+        }
+
         public void Delete(Department entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core;
 using System.Linq;
 
 namespace UoW_MultipleDBContext.Data.Infrastructure
@@ -42,10 +43,17 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
             _dataContext.Entry(entity).State = EntityState.Modified;
         }
 
+        public void Delete(int id)
+        {
+            var entity = GetById(id);
+            if (entity == null)
+                throw new ObjectNotFoundException("entity");
+            Dbset.Remove(entity);
+        }
+
         public void Delete(TEntity entity)
         {
             Dbset.Remove(entity);
-            _dataContext.SaveChanges();
         }
 
         protected override void DisposeCore()

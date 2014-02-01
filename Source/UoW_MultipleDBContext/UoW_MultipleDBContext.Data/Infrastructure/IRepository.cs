@@ -8,6 +8,7 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
         TEntity GetById(int id);
         void Insert(TEntity entity);
         void Update(TEntity entity);
+        void Delete(int id);
         void Delete(TEntity entity);
     }
 }
