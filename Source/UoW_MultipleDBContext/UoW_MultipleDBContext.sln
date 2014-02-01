@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Web.API", "UoW_MultipleDBContext.Web.API\UoW_MultipleDBContext.Web.API.csproj", "{112F2DD9-ED16-40C2-9B34-5A5DB61287EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C93584D7-FF16-463F-A0EF-CD95C1050392}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
