@@ -7,6 +7,7 @@ Features:
 -------------
 - Entity Framework 6
 - MVC 5
+- WepAPI 2
 - Dependency Injection and IOC using Autofac
 - AutoMapper
 - Unit Of Work with multiple DBContexts
