@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 using AutoMapper;
 using UoW_MultipleDBContext.Entity;
 using UoW_MultipleDBContext.Service.CategoryService;
@@ -22,15 +23,16 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
 
         public IQueryable<CategoryModel> Get()
         {
-            var category= _categoryService.GetAll();
-            var entityList = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(category);
+            IEnumerable<Category> category = _categoryService.GetAll();
+            IEnumerable<CategoryModel> entityList =
+                Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(category);
             return entityList.AsQueryable();
         }
 
         // GET /api/category/5
         public IHttpActionResult Get(int id)
         {
-            var category = _categoryService.GetById(id);
+            Category category = _categoryService.GetById(id);
             if (category == null)
             {
                 return NotFound();
@@ -45,14 +47,16 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
             {
                 try
                 {
-                    var entity = Mapper.Map<CategoryModel, Category>(category);
+                    Category entity = Mapper.Map<CategoryModel, Category>(category);
                     _categoryService.Insert(entity);
-                    var response = CreatedAtRoute("DefaultApi", new {id = category.Id}, category);
+                    CreatedAtRouteNegotiatedContentResult<CategoryModel> response = CreatedAtRoute("DefaultApi",
+                        new {id = category.Id}, category);
                     return response;
                 }
                 catch (Exception ex)
                 {
-                    var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
+                    HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
+                        ex.Message);
                     return ResponseMessage(responseMessage);
                 }
             }
@@ -66,13 +70,14 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
             {
                 try
                 {
-                    var entity = Mapper.Map<CategoryModel, Category>(category);
+                    Category entity = Mapper.Map<CategoryModel, Category>(category);
                     _categoryService.Update(entity);
                     return Ok(category);
                 }
                 catch (Exception ex)
                 {
-                    var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
+                    HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
+                        ex.Message);
                     return ResponseMessage(responseMessage);
                 }
             }
@@ -89,7 +94,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
             }
             catch (Exception ex)
             {
-                var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
+                HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
+                    ex.Message);
                 return ResponseMessage(responseMessage);
             }
         }
