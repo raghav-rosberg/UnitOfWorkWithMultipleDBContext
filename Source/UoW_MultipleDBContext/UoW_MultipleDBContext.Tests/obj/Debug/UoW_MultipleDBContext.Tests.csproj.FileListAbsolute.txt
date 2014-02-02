@@ -46,3 +46,4 @@ I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_Multi
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Tests\bin\Debug\Autofac.Integration.WebApi.xml
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Tests\bin\Debug\System.Net.Http.Formatting.xml
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Tests\bin\Debug\Newtonsoft.Json.xml
+I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Tests\bin\Debug\UoW_MultipleDBContext.Tests.dll.config

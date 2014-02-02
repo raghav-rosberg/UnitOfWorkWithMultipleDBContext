@@ -54,7 +54,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
             {
                 // TODO: Add insert logic here
                 if (model == null)
-                    return View(model);
+                    return View();
                 var department = Mapper.Map<DepartmentModel, Department>(model);
                 _departmentService.Insert(department);
                 return RedirectToAction("Index");

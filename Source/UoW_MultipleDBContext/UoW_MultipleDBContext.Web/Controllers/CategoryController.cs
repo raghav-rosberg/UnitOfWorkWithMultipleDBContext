@@ -64,7 +64,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
             {
                 // TODO: Add insert logic here
                 if (model == null)
-                    return View(model);
+                    return View();
                 var category = Mapper.Map<CategoryModel, Category>(model);
                 _categoryService.Insert(category);
                 return RedirectToAction("Index");
