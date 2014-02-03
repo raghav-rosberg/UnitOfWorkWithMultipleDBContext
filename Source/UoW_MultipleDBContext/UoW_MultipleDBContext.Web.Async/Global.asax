@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UoW_MultipleDBContext.Web.Async.MvcApplication" Language="C#" %>

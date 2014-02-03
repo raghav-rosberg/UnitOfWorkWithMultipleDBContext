@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Threading.Tasks;
 using UoW_MultipleDBContext.Data.Infrastructure;
 using UoW_MultipleDBContext.Data.Repositories;
 using UoW_MultipleDBContext.Data.Repositories.Interface;
@@ -12,6 +13,11 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
         public virtual void Commit()
         {
             _dataContext.SaveChanges();
+        }
+
+        public Task<int> CommitAsync()
+        {
+            return _dataContext.SaveChangesAsync();
         }
 
         private readonly DbContext _dataContext;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using UoW_MultipleDBContext.Data.DBContexts;
 using UoW_MultipleDBContext.Data.UnitOfWork;
 using UoW_MultipleDBContext.Entity;
@@ -51,6 +53,47 @@ namespace UoW_MultipleDBContext.Service.DepartmentService
             if (entity == null) throw new ArgumentNullException("entity");
             _unitOfWork.DepartmentRepository.Delete(entity);
             _unitOfWork.Commit();
+        }
+
+        public void Delete(Expression<Func<Department, bool>> @where)
+        {
+            _unitOfWork.DepartmentRepository.Delete(@where);
+        }
+
+        public Department Get(Expression<Func<Department, bool>> @where)
+        {
+            return _unitOfWork.DepartmentRepository.Get(@where);
+        }
+
+        public IEnumerable<Department> GetMany(Expression<Func<Department, bool>> @where)
+        {
+            return _unitOfWork.DepartmentRepository.GetMany(@where);
+        }
+
+        public async Task<int> InsertAsync(Department entity)
+        {
+            _unitOfWork.DepartmentRepository.Insert(entity);
+            return await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<List<Department>> GetAllAsync()
+        {
+            return await _unitOfWork.DepartmentRepository.GetAllAsync();
+        }
+
+        public async Task<Department> GetAsync(Expression<Func<Department, bool>> @where)
+        {
+            return await _unitOfWork.DepartmentRepository.GetAsync(@where);
+        }
+
+        public async Task<List<Department>> GetManyAsync(Expression<Func<Department, bool>> @where)
+        {
+            return await _unitOfWork.DepartmentRepository.GetManyAsync(@where);
+        }
+
+        public async Task<Department> GetByIdAsync(int id)
+        {
+            return await _unitOfWork.DepartmentRepository.GetAsync(department => department.Id == id);
         }
     }
 }
