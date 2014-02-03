@@ -46,11 +46,11 @@ namespace UoW_MultipleDBContext.Tests.Controllers
 
             // Act
             Mapper.CreateMap<Category, CategoryModel>();
-            var result = (ViewResult)controller.Index();
+            var result = (ViewResult) controller.Index();
             // Assert
             Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof(IEnumerable<CategoryModel>),
-                    result.ViewData.Model, "Wrong View Model");
+            Assert.IsInstanceOf(typeof (IEnumerable<CategoryModel>),
+                result.ViewData.Model, "Wrong View Model");
             var categories = result.ViewData.Model as IEnumerable<CategoryModel>;
             if (categories != null) Assert.AreEqual(3, categories.Count(), "Got wrong number of Categories");
         }
@@ -70,11 +70,11 @@ namespace UoW_MultipleDBContext.Tests.Controllers
 
             // Act
             Mapper.CreateMap<Department, DepartmentModel>();
-            var result = (ViewResult)controller.Index();
+            var result = (ViewResult) controller.Index();
             // Assert
             Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof(IEnumerable<DepartmentModel>),
-                    result.ViewData.Model, "Wrong View Model");
+            Assert.IsInstanceOf(typeof (IEnumerable<DepartmentModel>),
+                result.ViewData.Model, "Wrong View Model");
             var departments = result.ViewData.Model as IEnumerable<DepartmentModel>;
             if (departments != null) Assert.AreEqual(3, departments.Count(), "Got wrong number of Departments");
         }

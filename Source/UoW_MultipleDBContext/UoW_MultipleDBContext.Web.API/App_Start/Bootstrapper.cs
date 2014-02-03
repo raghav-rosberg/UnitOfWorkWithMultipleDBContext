@@ -18,15 +18,16 @@ namespace UoW_MultipleDBContext.Web.API
             //Configure AutoMapper
             AutoMapperConfiguration.Configure();
         }
+
         private static void SetAutofacContainer()
         {
-            var configuration = (HttpConfiguration)GlobalConfiguration.Configuration;
+            var configuration = (HttpConfiguration) GlobalConfiguration.Configuration;
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>));
-            builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepository<>));
-            builder.RegisterType(typeof(CategoryService)).As(typeof(ICategoryService)).InstancePerDependency();
-            builder.RegisterType(typeof(DepartmentService)).As(typeof(IDepartmentService)).InstancePerDependency();
+            builder.RegisterGeneric(typeof (UnitOfWork<>)).As(typeof (IUnitOfWork<>));
+            builder.RegisterGeneric(typeof (RepositoryBase<>)).As(typeof (IRepository<>));
+            builder.RegisterType(typeof (CategoryService)).As(typeof (ICategoryService)).InstancePerDependency();
+            builder.RegisterType(typeof (DepartmentService)).As(typeof (IDepartmentService)).InstancePerDependency();
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
             configuration.DependencyResolver = resolver;

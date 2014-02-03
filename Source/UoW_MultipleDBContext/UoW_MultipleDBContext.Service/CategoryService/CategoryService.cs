@@ -35,35 +35,37 @@ namespace UoW_MultipleDBContext.Service.CategoryService
             return _unitOfWork.CategoryRepository.GetCategoryWithExpenses();
         }
 
-        public void Insert(Category entity)
+        public int Insert(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
             _unitOfWork.CategoryRepository.Insert(entity);
-            _unitOfWork.Commit();
+            return _unitOfWork.Commit();
         }
 
-        public void Update(Category entity)
+        public int Update(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
             _unitOfWork.CategoryRepository.Update(entity);
-            _unitOfWork.Commit();
+            return _unitOfWork.Commit();
         }
 
-        public void Delete(int id)
+        public int Delete(int id)
         {
-            _unitOfWork.CategoryRepository.GetById(id);
+            _unitOfWork.CategoryRepository.Delete(id);
+            return _unitOfWork.Commit();
         }
 
-        public void Delete(Category entity)
+        public int Delete(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
             _unitOfWork.CategoryRepository.Delete(entity);
-            _unitOfWork.Commit();
+            return _unitOfWork.Commit();
         }
 
-        public void Delete(Expression<Func<Category, bool>> @where)
+        public int Delete(Expression<Func<Category, bool>> @where)
         {
             _unitOfWork.CategoryRepository.Delete(@where);
+            return _unitOfWork.Commit();
         }
 
         public Category Get(Expression<Func<Category, bool>> @where)
@@ -81,19 +83,49 @@ namespace UoW_MultipleDBContext.Service.CategoryService
             return await _unitOfWork.CategoryRepository.GetAsync(category => category.Id == id);
         }
 
-        public Task<List<Category>> GetAllAsync()
+        public async Task<int> InsertAsync(Category entity)
         {
-            return _unitOfWork.CategoryRepository.GetAllAsync();
+            _unitOfWork.CategoryRepository.Insert(entity);
+            return await _unitOfWork.CommitAsync();
         }
 
-        public Task<Category> GetAsync(Expression<Func<Category, bool>> @where)
+        public async Task<int> UpdateAsync(Category entity)
         {
-            return _unitOfWork.CategoryRepository.GetAsync(@where);
+            _unitOfWork.CategoryRepository.Update(entity);
+            return await _unitOfWork.CommitAsync();
         }
 
-        public Task<List<Category>> GetManyAsync(Expression<Func<Category, bool>> @where)
+        public async Task<int> DeleteAsync(Category entity)
         {
-            return _unitOfWork.CategoryRepository.GetManyAsync(@where);
+            _unitOfWork.CategoryRepository.Delete(entity);
+            return await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<int> DeleteAsync(int id)
+        {
+            _unitOfWork.CategoryRepository.Delete(id);
+            return await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<int> DeleteAsync(Expression<Func<Category, bool>> @where)
+        {
+            _unitOfWork.CategoryRepository.Delete(where);
+            return await _unitOfWork.CommitAsync();
+        }
+
+        public async Task<List<Category>> GetAllAsync()
+        {
+            return await _unitOfWork.CategoryRepository.GetAllAsync();
+        }
+
+        public async Task<Category> GetAsync(Expression<Func<Category, bool>> @where)
+        {
+            return await _unitOfWork.CategoryRepository.GetAsync(where);
+        }
+
+        public async Task<List<Category>> GetManyAsync(Expression<Func<Category, bool>> @where)
+        {
+            return await _unitOfWork.CategoryRepository.GetManyAsync(where);
         }
     }
 }

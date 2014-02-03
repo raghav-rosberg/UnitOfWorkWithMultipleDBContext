@@ -48,8 +48,8 @@ namespace UoW_MultipleDBContext.Tests.Controllers
             var result = controller.Get();
             // Assert
             Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof(IQueryable<CategoryModel>),
-                    result, "Wrong View Model");
+            Assert.IsInstanceOf(typeof (IQueryable<CategoryModel>),
+                result, "Wrong View Model");
             Assert.AreEqual(3, result.Count(), "Got wrong number of Categories");
         }
 
@@ -71,8 +71,8 @@ namespace UoW_MultipleDBContext.Tests.Controllers
             var result = controller.Get();
             // Assert
             Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof(IQueryable<DepartmentModel>),
-                    result, "Wrong View Model");
+            Assert.IsInstanceOf(typeof (IQueryable<DepartmentModel>),
+                result, "Wrong View Model");
             Assert.AreEqual(3, result.Count(), "Got wrong number of Departments");
         }
     }

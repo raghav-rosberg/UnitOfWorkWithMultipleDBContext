@@ -5,7 +5,6 @@ using UoW_MultipleDBContext.Web.Models;
 
 namespace UoW_MultipleDBContext.Web.Mappings
 {
-
     public class ViewModelToDomainMappingProfile : Profile
     {
         public override string ProfileName
@@ -17,7 +16,7 @@ namespace UoW_MultipleDBContext.Web.Mappings
         {
             Mapper.CreateMap<CategoryModel, Category>();
             Mapper.CreateMap<CategoryWithExpenseModel, CategoryWithExpense>();
-            Mapper.CreateMap<DepartmentModel, Department>();  
+            Mapper.CreateMap<DepartmentModel, Department>();
         }
     }
 }

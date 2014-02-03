@@ -16,6 +16,7 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
         private void Dispose(bool disposing)
         {
             if (!_isDisposed && disposing)
@@ -29,6 +30,5 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
         protected virtual void DisposeCore()
         {
         }
-    }   
+    }
 }
-

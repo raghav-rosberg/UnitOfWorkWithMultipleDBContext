@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core;
@@ -13,6 +12,7 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
         where TEntity : class
     {
         private readonly DbContext _dataContext;
+
         private IDbSet<TEntity> Dbset
         {
             get { return _dataContext.Set<TEntity>(); }
@@ -61,7 +61,7 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
 
         public void Delete(Expression<Func<TEntity, bool>> @where)
         {
-            IEnumerable<TEntity> objects = Dbset.Where<TEntity>(where).AsEnumerable();
+            IEnumerable<TEntity> objects = Dbset.Where(where).AsEnumerable();
             foreach (TEntity obj in objects)
                 Dbset.Remove(obj);
         }
@@ -71,24 +71,24 @@ namespace UoW_MultipleDBContext.Data.Infrastructure
             return Dbset.Where(where).FirstOrDefault();
         }
 
-        public Task<List<TEntity>> GetAllAsync()
-        {
-            return Dbset.ToListAsync();
-        }
-
-        public Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> @where)
-        {
-            return Dbset.Where(where).FirstOrDefaultAsync();
-        }
-
-        public Task<List<TEntity>> GetManyAsync(Expression<Func<TEntity, bool>> @where)
-        {
-            return Dbset.Where(where).ToListAsync();
-        }
-
         public IEnumerable<TEntity> GetMany(Expression<Func<TEntity, bool>> where)
         {
             return Dbset.Where(where).ToList();
+        }
+
+        public async Task<List<TEntity>> GetAllAsync()
+        {
+            return await Dbset.ToListAsync();
+        }
+
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> @where)
+        {
+            return await Dbset.Where(where).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<TEntity>> GetManyAsync(Expression<Func<TEntity, bool>> @where)
+        {
+            return await Dbset.Where(where).ToListAsync();
         }
 
         protected override void DisposeCore()

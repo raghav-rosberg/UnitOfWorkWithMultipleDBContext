@@ -11,7 +11,7 @@ using UoW_MultipleDBContext.Web.API.Models;
 
 namespace UoW_MultipleDBContext.Web.API.Controllers
 {
-    public class DepartmentController: ApiController
+    public class DepartmentController : ApiController
     {
         private readonly IDepartmentService _departmentService;
 
@@ -22,7 +22,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
 
         public IQueryable<DepartmentModel> Get()
         {
-            var department= _departmentService.GetAll();
+            var department = _departmentService.GetAll();
             var entityList = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentModel>>(department);
             return entityList.AsQueryable();
         }
@@ -47,7 +47,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
                 {
                     var entity = Mapper.Map<DepartmentModel, Department>(department);
                     _departmentService.Insert(entity);
-                    var response = CreatedAtRoute("DefaultApi", new { id = department.Id }, department);
+                    var response = CreatedAtRoute("DefaultApi", new {id = department.Id}, department);
                     return response;
                 }
                 catch (Exception ex)

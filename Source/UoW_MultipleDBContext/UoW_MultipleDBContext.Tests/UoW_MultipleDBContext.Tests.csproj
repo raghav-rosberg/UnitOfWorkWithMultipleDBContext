@@ -84,6 +84,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\ApiControllerTests.cs" />
+    <Compile Include="Controllers\WebAsyncControllerTests.cs" />
     <Compile Include="Controllers\WebControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,6 +108,10 @@
     <ProjectReference Include="..\UoW_MultipleDBContext.Web.API\UoW_MultipleDBContext.Web.API.csproj">
       <Project>{112f2dd9-ed16-40c2-9b34-5a5db61287ee}</Project>
       <Name>UoW_MultipleDBContext.Web.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoW_MultipleDBContext.Web.Async\UoW_MultipleDBContext.Web.Async.csproj">
+      <Project>{a13176e1-ca40-41c0-9873-d913309b7fe2}</Project>
+      <Name>UoW_MultipleDBContext.Web.Async</Name>
     </ProjectReference>
     <ProjectReference Include="..\UoW_MultipleDBContext.Web\UoW_MultipleDBContext.Web.csproj">
       <Project>{faac9e56-daf0-4cd4-b385-80013fb2fb3a}</Project>

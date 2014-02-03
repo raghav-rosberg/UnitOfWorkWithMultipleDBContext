@@ -15,7 +15,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
         {
             _departmentService = departmentService;
         }
-        
+
         // GET: /Category/
 
         public ActionResult Index()
@@ -48,7 +48,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
         // POST: /Category/Create
 
         [HttpPost]
-        public ActionResult Create(DepartmentModel model)//FormCollection collection
+        public ActionResult Create(DepartmentModel model) //FormCollection collection
         {
             try
             {
@@ -75,6 +75,22 @@ namespace UoW_MultipleDBContext.Web.Controllers
             return View(departmentModel);
         }
 
+        [HttpPost]
+        public ActionResult Edit(int id, DepartmentModel model)
+        {
+            try
+            {
+                if (id == 0)
+                    return RedirectToAction("Index");
+                var department = Mapper.Map<DepartmentModel, Department>(model);
+                _departmentService.Update(department);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
         //
         // GET: /Category/Delete/5
@@ -84,7 +100,6 @@ namespace UoW_MultipleDBContext.Web.Controllers
             var department = _departmentService.GetById(id);
             var departmentModel = Mapper.Map<Department, DepartmentModel>(department);
             return View(departmentModel);
-
         }
 
         //

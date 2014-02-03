@@ -2,7 +2,6 @@
 
 namespace UoW_MultipleDBContext.Web.Models
 {
-
     public class ChangePasswordModel
     {
         [Required]

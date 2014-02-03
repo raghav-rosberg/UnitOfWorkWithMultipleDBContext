@@ -31,7 +31,8 @@ namespace UoW_MultipleDBContext.Web.Controllers
         public ActionResult CategoryWithExpenses()
         {
             var categoryWithExpense = _categoryService.GetCategoryWithExpenses();
-            var categoryWithExpenseModelList = Mapper.Map<IEnumerable<CategoryWithExpense>, IEnumerable<CategoryWithExpenseModel>>(categoryWithExpense);
+            var categoryWithExpenseModelList =
+                Mapper.Map<IEnumerable<CategoryWithExpense>, IEnumerable<CategoryWithExpenseModel>>(categoryWithExpense);
             return View(categoryWithExpenseModelList);
         }
 
@@ -58,7 +59,7 @@ namespace UoW_MultipleDBContext.Web.Controllers
         // POST: /Category/Create
 
         [HttpPost]
-        public ActionResult Create(CategoryModel model)//FormCollection collection
+        public ActionResult Create(CategoryModel model) //FormCollection collection
         {
             try
             {
@@ -95,6 +96,5 @@ namespace UoW_MultipleDBContext.Web.Controllers
             var categoryModel = Mapper.Map<Category, CategoryModel>(category);
             return View(categoryModel);
         }
-
     }
 }

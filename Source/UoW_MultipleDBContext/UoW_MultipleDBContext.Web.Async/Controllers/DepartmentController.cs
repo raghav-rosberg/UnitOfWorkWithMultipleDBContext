@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Data.DBContexts;
 using UoW_MultipleDBContext.Service.DepartmentService;
 using UoW_MultipleDBContext.Web.Async.Models;
 
@@ -57,7 +51,7 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
         // POST: /Category/Create
 
         [HttpPost]
-        public async Task<ActionResult> Create(DepartmentModel model)//FormCollection collection
+        public async Task<ActionResult> Create(DepartmentModel model) //FormCollection collection
         {
             try
             {
@@ -71,6 +65,58 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
             catch
             {
                 return View(model);
+            }
+        }
+
+        public async Task<ActionResult> Edit(int id)
+        {
+            var department = await _departmentService.GetByIdAsync(id);
+            var departmentModel = Mapper.Map<Department, DepartmentModel>(department);
+            return View(departmentModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(int id, DepartmentModel model)
+        {
+            try
+            {
+                if (id == 0)
+                    return RedirectToAction("Index");
+                var department = Mapper.Map<DepartmentModel, Department>(model);
+                await _departmentService.UpdateAsync(department);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Category/Delete/5
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            await _departmentService.DeleteAsync(id);
+            return RedirectToAction("Index");
+        }
+
+        //
+        // POST: /Category/Delete/5
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(int id, DepartmentModel model)
+        {
+            try
+            {
+                if (id == 0)
+                    return RedirectToAction("Index");
+                await _departmentService.DeleteAsync(id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
     }

@@ -12,9 +12,8 @@ namespace UoW_MultipleDBContext.Web.API
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { Controller="Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new {Controller = "Home", action = "Index", id = UrlParameter.Optional}
+                );
         }
     }
 }
-

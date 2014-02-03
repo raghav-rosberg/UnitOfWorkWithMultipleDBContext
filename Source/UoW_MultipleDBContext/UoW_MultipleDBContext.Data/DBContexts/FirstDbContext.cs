@@ -20,6 +20,5 @@ namespace UoW_MultipleDBContext.Data.DBContexts
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
-
     }
 }

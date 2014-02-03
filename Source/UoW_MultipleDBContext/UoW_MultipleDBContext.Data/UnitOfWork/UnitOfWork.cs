@@ -10,12 +10,12 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
     public class UnitOfWork<TContext> : Disposable, IUnitOfWork<TContext>
         where TContext : DbContext, new()
     {
-        public virtual void Commit()
+        public virtual int Commit()
         {
-            _dataContext.SaveChanges();
+            return _dataContext.SaveChanges();
         }
 
-        public Task<int> CommitAsync()
+        public virtual Task<int> CommitAsync()
         {
             return _dataContext.SaveChangesAsync();
         }
@@ -37,12 +37,14 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
         /// Define Repositories
         /// </summary>
         private ICategoryRepository _categoryRepository;
+
         public ICategoryRepository CategoryRepository
         {
             get { return _categoryRepository ?? (_categoryRepository = new CategoryRepository(_dataContext)); }
         }
 
         private IRepository<Department> _departmentRepository;
+
         public IRepository<Department> DepartmentRepository
         {
             get
