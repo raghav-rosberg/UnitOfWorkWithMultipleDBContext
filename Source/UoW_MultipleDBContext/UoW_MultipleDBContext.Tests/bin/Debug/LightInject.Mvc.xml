@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LightInject.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:LightInject.MvcContainerExtensions">
+            <summary>
+            Extends the <see cref="T:LightInject.IServiceContainer"/> interface with a method that 
+            enables dependency injection in an ASP.NET MVC application.
+            </summary>
+        </member>
+        <member name="M:LightInject.MvcContainerExtensions.RegisterControllers(LightInject.IServiceRegistry,System.Reflection.Assembly[])">
+            <summary>
+            Registers all <see cref="T:System.Web.Mvc.Controller"/> implementations found in the given <paramref name="assemblies"/>.
+            </summary>
+            <param name="serviceRegistry">The target <see cref="T:LightInject.IServiceRegistry"/>.</param>
+            <param name="assemblies">A list of assemblies from which to register <see cref="T:System.Web.Mvc.Controller"/> implementations.</param>
+        </member>
+        <member name="M:LightInject.MvcContainerExtensions.RegisterControllers(LightInject.IServiceRegistry)">
+            <summary>
+            Registers all <see cref="T:System.Web.Mvc.Controller"/> implementations found in this assembly.
+            </summary>
+            <param name="serviceRegistry">The target <see cref="T:LightInject.IServiceRegistry"/>.</param>
+        </member>
+        <member name="M:LightInject.MvcContainerExtensions.EnableMvc(LightInject.IServiceContainer)">
+            <summary>
+            Enables dependency injection in an ASP.NET MVC application.
+            </summary>
+            <param name="serviceContainer">The target <see cref="T:LightInject.IServiceContainer"/>.</param>
+        </member>
+        <member name="T:LightInject.Mvc.LightInjectMvcDependencyResolver">
+            <summary>
+            An <see cref="T:System.Web.Mvc.IDependencyResolver"/> adapter for the LightInject service container.
+            </summary>
+        </member>
+        <member name="M:LightInject.Mvc.LightInjectMvcDependencyResolver.#ctor(LightInject.IServiceContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightInject.Mvc.LightInjectMvcDependencyResolver"/> class.
+            </summary>
+            <param name="serviceContainer">The <see cref="T:LightInject.IServiceContainer"/> instance to 
+            be used for resolving service instances.</param>
+        </member>
+        <member name="M:LightInject.Mvc.LightInjectMvcDependencyResolver.GetService(System.Type)">
+            <summary>
+            Resolves singly registered services that support arbitrary object creation.
+            </summary>
+            <returns>
+            The requested service or object.
+            </returns>
+            <param name="serviceType">The type of the requested service or object.</param>
+        </member>
+        <member name="M:LightInject.Mvc.LightInjectMvcDependencyResolver.GetServices(System.Type)">
+            <summary>
+            Resolves multiply registered services.
+            </summary>
+            <returns>
+            The requested services.
+            </returns>
+            <param name="serviceType">The type of the requested services.</param>
+        </member>
+        <member name="T:LightInject.Mvc.LightInjectFilterProvider">
+            <summary>
+            A <see cref="T:System.Web.Mvc.FilterAttributeFilterProvider"/> that uses an <see cref="T:LightInject.IServiceContainer"/>    
+            to inject property dependencies into <see cref="T:System.Web.Mvc.Filter"/> instances.
+            </summary>
+        </member>
+        <member name="M:LightInject.Mvc.LightInjectFilterProvider.#ctor(LightInject.IServiceContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightInject.Mvc.LightInjectFilterProvider"/> class.
+            </summary>
+            <param name="serviceContainer">The <see cref="T:LightInject.IServiceContainer"/> instance 
+            used to inject property dependencies.</param>
+        </member>
+        <member name="M:LightInject.Mvc.LightInjectFilterProvider.GetFilters(System.Web.Mvc.ControllerContext,System.Web.Mvc.ActionDescriptor)">
+            <summary>
+            Aggregates the filters from all of the filter providers into one collection.
+            </summary>
+            <returns>
+            The collection filters from all of the filter providers.
+            </returns>
+            <param name="controllerContext">The controller context.</param>
+            <param name="actionDescriptor">The action descriptor.</param>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,7 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using Newtonsoft.Json.Serialization;
+using System.Net.Http.Formatting;
+using System.Web.Http;
 
 namespace UoW_MultipleDBContext.Web.API
 {
@@ -14,8 +17,11 @@ namespace UoW_MultipleDBContext.Web.API
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new {id = RouteParameter.Optional}
+                defaults: new { id = RouteParameter.Optional }
                 );
+
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

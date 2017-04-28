@@ -2,39 +2,56 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using AutoMapper;
-using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Service.CategoryService;
+
 using UoW_MultipleDBContext.Web.Async.Models;
+using UoW_MultipleDBContext.Web.Core;
+using Newtonsoft.Json;
 
 namespace UoW_MultipleDBContext.Web.Async.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryService _categoryService;
+        private readonly IApiHelper _apiHelper;
+        private readonly IApiPath _apiPath;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(IApiHelper apiHelper, IApiPath apiPath)
         {
-            _categoryService = categoryService;
+            _apiHelper = apiHelper;
+            _apiPath = apiPath;
         }
 
         // GET: /Department/
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string keyword)
         {
-            var categories = await _categoryService.GetAllAsync();
-            var categoryModelList = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(categories);
-            return View(categoryModelList.ToList());
+            if (string.IsNullOrEmpty(keyword))
+            {
+                var categories = await _apiHelper.GetDataFromAPi(_apiPath.GetAllCategories);
+                var allCategoryModelList = JsonConvert.DeserializeObject<IEnumerable<CategoryModel>>(await categories.Content.ReadAsStringAsync());
+                return View(allCategoryModelList);
+            }
+
+            string key = keyword;
+            var category = await _apiHelper.GetDataFromAPi("", new[]
+                        {
+                            new KeyValuePair<string, string>("key", keyword)
+                        });
+            var categoryModelList = JsonConvert.DeserializeObject<IEnumerable<CategoryModel>>(await category.Content.ReadAsStringAsync());
+
+            return View(categoryModelList);
         }
 
         // GET: /Department/Details/5
         public async Task<ActionResult> Details(int id)
         {
-            Category category = await _categoryService.GetByIdAsync(id);
+            var category = await _apiHelper.GetDataFromAPi(_apiPath.GetCategorybyId, new[]
+                        {
+                            new KeyValuePair<string, string>("id", id.ToString())
+                        });
             if (category == null)
             {
                 return HttpNotFound();
             }
-            var categoryModel = Mapper.Map<Category, CategoryModel>(category);
+            var categoryModel = JsonConvert.DeserializeObject<CategoryModel>(await category.Content.ReadAsStringAsync());
             return View(categoryModel);
         }
 
@@ -58,8 +75,7 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
                 // TODO: Add insert logic here
                 if (model == null)
                     return View();
-                var category = Mapper.Map<CategoryModel, Category>(model);
-                await _categoryService.InsertAsync(category);
+                await _apiHelper.PostDataToAPi(_apiPath.CreateCategory, JsonConvert.SerializeObject(model));
                 return RedirectToAction("Index");
             }
             catch
@@ -70,8 +86,15 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
-            var category = await _categoryService.GetByIdAsync(id);
-            var categoryModel = Mapper.Map<Category, CategoryModel>(category);
+            var category = await _apiHelper.GetDataFromAPi(_apiPath.GetCategorybyId, new[]
+                        {
+                            new KeyValuePair<string, string>("id", id.ToString())
+                        });
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            var categoryModel = JsonConvert.DeserializeObject<CategoryModel>(await category.Content.ReadAsStringAsync());
             return View(categoryModel);
         }
 
@@ -82,8 +105,7 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
             {
                 if (id == 0)
                     return RedirectToAction("Index");
-                var category = Mapper.Map<CategoryModel, Category>(model);
-                await _categoryService.UpdateAsync(category);
+                await _apiHelper.PostDataToAPi(_apiPath.UpdateCategory, JsonConvert.SerializeObject(model));
                 return RedirectToAction("Index");
             }
             catch
@@ -97,8 +119,18 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
 
         public async Task<ActionResult> Delete(int id)
         {
-            await _categoryService.DeleteAsync(id);
-            return RedirectToAction("Index");
+            var category = await _apiHelper.GetDataFromAPi(_apiPath.GetCategorybyId, new[]
+                        {
+                            new KeyValuePair<string, string>("id", id.ToString())
+                        });
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            var categoryModel = JsonConvert.DeserializeObject<CategoryModel>(await category.Content.ReadAsStringAsync());
+
+            //CategoryModel
+            return View(categoryModel);
         }
 
         //
@@ -111,7 +143,7 @@ namespace UoW_MultipleDBContext.Web.Async.Controllers
             {
                 if (id == 0)
                     return RedirectToAction("Index");
-                await _categoryService.DeleteAsync(id);
+                await _apiHelper.PostDataToAPi(_apiPath.DeleteCategory, JsonConvert.SerializeObject(model));
                 return RedirectToAction("Index");
             }
             catch

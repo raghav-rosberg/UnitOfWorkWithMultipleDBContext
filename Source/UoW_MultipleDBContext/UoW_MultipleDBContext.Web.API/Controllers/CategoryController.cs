@@ -4,100 +4,87 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Results;
-using AutoMapper;
+
 using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Service.CategoryService;
 using UoW_MultipleDBContext.Web.API.Models;
+using UoW_MultipleDBContext.Data.UnitOfWork;
+using UoW_MultipleDBContext.Data.DBContexts;
+using System.Threading.Tasks;
 
 namespace UoW_MultipleDBContext.Web.API.Controllers
 {
+    [Authorize]
+    [RoutePrefix("api/Category")]
     public class CategoryController : ApiController
     {
-        private readonly ICategoryService _categoryService;
-
-        public CategoryController(ICategoryService categoryService)
+        private readonly IUnitOfWork<FirstDbContext> _unitOfWork;
+        
+        public CategoryController(IUnitOfWork<FirstDbContext> unitOfWork)
         {
-            _categoryService = categoryService;
+            _unitOfWork = unitOfWork;
         }
 
-        public IQueryable<CategoryModel> Get()
+        [Route("GetAll")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetAll()
         {
-            IEnumerable<Category> category = _categoryService.GetAll();
-            IEnumerable<CategoryModel> entityList =
-                Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryModel>>(category);
-            return entityList.AsQueryable();
+            var data = await _unitOfWork.CategoryRepository.GetAllAsync();
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
-        // GET /api/category/5
-        public IHttpActionResult Get(int id)
+        [Route("GetById")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetById(int id)
         {
-            Category category = _categoryService.GetById(id);
-            if (category == null)
-            {
-                return NotFound();
-            }
-            return Ok(category);
+            var data = await _unitOfWork.CategoryRepository.GetAsync(x => x.Id == id);
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
-        // POST /api/category
-        public IHttpActionResult Post(CategoryModel category)
+        [Route("GetByName")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetByName(string key)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    Category entity = Mapper.Map<CategoryModel, Category>(category);
-                    _categoryService.Insert(entity);
-                    CreatedAtRouteNegotiatedContentResult<CategoryModel> response = CreatedAtRoute("DefaultApi",
-                        new {id = category.Id}, category);
-                    return response;
-                }
-                catch (Exception ex)
-                {
-                    HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
-                        ex.Message);
-                    return ResponseMessage(responseMessage);
-                }
-            }
-            return BadRequest(ModelState);
+            var data = await _unitOfWork.CategoryRepository.GetAsync(x => x.Name.Contains(key));
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
-        // PUT /api/category/5
-        public IHttpActionResult Put(int id, CategoryModel category)
+        [Route("GetCategoryWithExpenses")]
+        [HttpGet]
+        public HttpResponseMessage GetCategoryWithExpenses()
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    Category entity = Mapper.Map<CategoryModel, Category>(category);
-                    _categoryService.Update(entity);
-                    return Ok(category);
-                }
-                catch (Exception ex)
-                {
-                    HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
-                        ex.Message);
-                    return ResponseMessage(responseMessage);
-                }
-            }
-            return BadRequest(ModelState);
+            var data = _unitOfWork.CategoryRepository.GetCategoryWithExpenses();
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
+        [Route("Insert")]
+        [HttpPost]
+        public HttpResponseMessage Insert(Category entity)
+        {
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.CategoryRepository.Insert(entity);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.Created) : Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [Route("Update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Category entity)
+        {
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.CategoryRepository.Update(entity);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.Accepted) : Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [Route("Delete")]
+        [HttpPost]
         // DELETE /api/category/5
-        public IHttpActionResult Delete(int id)
+        public HttpResponseMessage Delete(Category entity)
         {
-            try
-            {
-                _categoryService.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                HttpResponseMessage responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed,
-                    ex.Message);
-                return ResponseMessage(responseMessage);
-            }
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.CategoryRepository.Delete(entity.Id);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.MovedPermanently) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

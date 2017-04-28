@@ -4,94 +4,74 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using AutoMapper;
+using Newtonsoft.Json;
 using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Service.DepartmentService;
 using UoW_MultipleDBContext.Web.API.Models;
+using UoW_MultipleDBContext.Data.UnitOfWork;
+using UoW_MultipleDBContext.Data.DBContexts;
+using System.Threading.Tasks;
 
 namespace UoW_MultipleDBContext.Web.API.Controllers
 {
+    [Authorize]
+    [RoutePrefix("api/Department")]
     public class DepartmentController : ApiController
     {
-        private readonly IDepartmentService _departmentService;
+        private readonly IUnitOfWork<SecondDbContext> _unitOfWork;
 
-        public DepartmentController(IDepartmentService departmentService)
+        public DepartmentController(IUnitOfWork<SecondDbContext> unitOfWork)
         {
-            _departmentService = departmentService;
+            _unitOfWork = unitOfWork;
         }
 
-        public IQueryable<DepartmentModel> Get()
+        [Route("GetAll")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetAll()
         {
-            var department = _departmentService.GetAll();
-            var entityList = Mapper.Map<IEnumerable<Department>, IEnumerable<DepartmentModel>>(department);
-            return entityList.AsQueryable();
+            var data = await _unitOfWork.DepartmentRepository.GetAllAsync();
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
+        [Route("GetById")]
+        [HttpGet]
         // GET /api/category/5
-        public IHttpActionResult Get(int id)
+        public async Task<HttpResponseMessage> Get(int id)
         {
-            var department = _departmentService.GetById(id);
-            if (department == null)
-            {
-                return NotFound();
-            }
-            return Ok(department);
+            var data = await _unitOfWork.DepartmentRepository.GetAsync(x => x.Id == id);
+            return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
+        [Route("Insert")]
+        [HttpPost]
         // POST /api/category
-        public IHttpActionResult Post(DepartmentModel department)
+        public HttpResponseMessage Insert(Department entity)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var entity = Mapper.Map<DepartmentModel, Department>(department);
-                    _departmentService.Insert(entity);
-                    var response = CreatedAtRoute("DefaultApi", new {id = department.Id}, department);
-                    return response;
-                }
-                catch (Exception ex)
-                {
-                    var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
-                    return ResponseMessage(responseMessage);
-                }
-            }
-            return BadRequest(ModelState);
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.DepartmentRepository.Insert(entity);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.Created) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        [Route("Update")]
+        [HttpPost]
         // PUT /api/category/5
-        public IHttpActionResult Put(int id, DepartmentModel department)
+        public HttpResponseMessage Update(Department entity)
         {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    var entity = Mapper.Map<DepartmentModel, Department>(department);
-                    _departmentService.Update(entity);
-                    return Ok(department);
-                }
-                catch (Exception ex)
-                {
-                    var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
-                    return ResponseMessage(responseMessage);
-                }
-            }
-            return BadRequest(ModelState);
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.DepartmentRepository.Update(entity);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.Accepted) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
+        [Route("Delete")]
+        [HttpPost]
         // DELETE /api/category/5
-        public IHttpActionResult Delete(int id)
+        public HttpResponseMessage Delete(Department entity)
         {
-            try
-            {
-                _departmentService.Delete(id);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                var responseMessage = Request.CreateErrorResponse(HttpStatusCode.ExpectationFailed, ex.Message);
-                return ResponseMessage(responseMessage);
-            }
+            if (entity == null) throw new ArgumentNullException("entity");
+            _unitOfWork.DepartmentRepository.Delete(entity.Id);
+            var result = _unitOfWork.Commit();
+            return result == 1 ? Request.CreateResponse(HttpStatusCode.MovedPermanently) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

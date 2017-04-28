@@ -22,3 +22,14 @@ I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_Multi
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.dll
 I:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.pdb
+E:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.csprojResolveAssemblyReference.cache
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\UoW_MultipleDBContext.Entity.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\UoW_MultipleDBContext.Entity.pdb
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Entity\obj\Debug\UoW_MultipleDBContext.Entity.pdb

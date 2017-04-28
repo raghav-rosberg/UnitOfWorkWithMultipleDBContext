@@ -6,10 +6,12 @@ using NUnit.Framework;
 using UoW_MultipleDBContext.Data.DBContexts;
 using UoW_MultipleDBContext.Data.UnitOfWork;
 using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Service.CategoryService;
-using UoW_MultipleDBContext.Service.DepartmentService;
 using UoW_MultipleDBContext.Web.API.Controllers;
 using UoW_MultipleDBContext.Web.API.Models;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
+using System.Web.Http;
 
 namespace UoW_MultipleDBContext.Tests.Controllers
 {
@@ -18,20 +20,16 @@ namespace UoW_MultipleDBContext.Tests.Controllers
     {
         private Mock<IUnitOfWork<FirstDbContext>> _firstDbContextUoW;
         private Mock<IUnitOfWork<SecondDbContext>> _secondDbContextUoW;
-        private ICategoryService _categoryService;
-        private IDepartmentService _departmentService;
 
         [SetUp]
         public void SetUp()
         {
             _firstDbContextUoW = new Mock<IUnitOfWork<FirstDbContext>>();
             _secondDbContextUoW = new Mock<IUnitOfWork<SecondDbContext>>();
-            _categoryService = new CategoryService(_firstDbContextUoW.Object);
-            _departmentService = new DepartmentService(_secondDbContextUoW.Object);
         }
 
         [Test]
-        public void Index_Returns_Category_List()
+        public async Task Index_Returns_Category_List()
         {
             // Arrange   
             IEnumerable<Category> fakeCategories = new List<Category>
@@ -41,20 +39,27 @@ namespace UoW_MultipleDBContext.Tests.Controllers
                 new Category {Id = 3, Name = "Test3", Description = "Test3Desc"}
             }.AsEnumerable();
             _firstDbContextUoW.Setup(x => x.CategoryRepository.GetAll()).Returns(fakeCategories);
-            var controller = new CategoryController(_categoryService);
+            var controller = new CategoryController(_firstDbContextUoW.Object);
+            controller.Request = new HttpRequestMessage();
+            controller.Configuration = new HttpConfiguration();
 
             // Act
-            Mapper.CreateMap<Category, CategoryModel>();
-            var result = controller.Get();
+            var httpcontentResult = await controller.GetAll();
+            
             // Assert
-            Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof (IQueryable<CategoryModel>),
-                result, "Wrong View Model");
-            Assert.AreEqual(3, result.Count(), "Got wrong number of Categories");
+            Assert.IsNotNull(httpcontentResult);
+            Assert.IsNotNull(httpcontentResult.Content);
+            Assert.AreEqual(HttpStatusCode.Found, httpcontentResult.StatusCode);
+            Assert.IsInstanceOf<ObjectContent<IEnumerable<Category>>>(httpcontentResult.Content);
+
+            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<IEnumerable<Category>>)));
+            var contentResult = await httpcontentResult.Content.ReadAsAsync<IEnumerable<Category>>();
+            Assert.IsNotNull(contentResult);
+            Assert.AreEqual(3, contentResult.Count());
         }
 
         [Test]
-        public void Index_Returns_Department_List()
+        public async Task Index_Returns_Department_List()
         {
             // Arrange   
             IEnumerable<Department> fakeDepartments = new List<Department>
@@ -64,16 +69,21 @@ namespace UoW_MultipleDBContext.Tests.Controllers
                 new Department {Id = 3, Name = "Test3"}
             }.AsEnumerable();
             _secondDbContextUoW.Setup(x => x.DepartmentRepository.GetAll()).Returns(fakeDepartments);
-            var controller = new DepartmentController(_departmentService);
+            var controller = new DepartmentController(_secondDbContextUoW.Object);
 
             // Act
-            Mapper.CreateMap<Department, DepartmentModel>();
-            var result = controller.Get();
+            var httpcontentResult = await controller.GetAll();
+
             // Assert
-            Assert.IsNotNull(result, "View Result is null");
-            Assert.IsInstanceOf(typeof (IQueryable<DepartmentModel>),
-                result, "Wrong View Model");
-            Assert.AreEqual(3, result.Count(), "Got wrong number of Departments");
+            Assert.IsNotNull(httpcontentResult);
+            Assert.IsNotNull(httpcontentResult.Content);
+            Assert.AreEqual(HttpStatusCode.Found, httpcontentResult.StatusCode);
+            Assert.IsInstanceOf<ObjectContent<IEnumerable<Department>>>(httpcontentResult.Content);
+
+            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<IEnumerable<Department>>)));
+            var contentResult = await httpcontentResult.Content.ReadAsAsync<IEnumerable<Department>>();
+            Assert.IsNotNull(contentResult);
+            Assert.AreEqual(3, contentResult.Count());
         }
     }
 }

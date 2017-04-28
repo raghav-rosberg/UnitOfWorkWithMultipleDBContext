@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LightInject.Web</name>
+    </assembly>
+    <members>
+        <member name="T:LightInject.WebContainerExtensions">
+            <summary>
+            Extends the <see cref="T:LightInject.IServiceContainer"/> interface with a method
+            to enable services that are scoped per web request.
+            </summary>
+        </member>
+        <member name="M:LightInject.WebContainerExtensions.EnablePerWebRequestScope(LightInject.IServiceContainer)">
+            <summary>
+            Ensures that services registered with the <see cref="T:LightInject.PerScopeLifetime"/> is properly
+            disposed when the web request ends.
+            </summary>
+            <param name="serviceContainer">The target <see cref="T:LightInject.IServiceContainer"/>.</param>
+        </member>
+        <member name="T:LightInject.Web.LightInjectHttpModuleInitializer">
+            <summary>
+            Registers the <see cref="T:LightInject.Web.LightInjectHttpModule"/> with the current <see cref="T:System.Web.HttpApplication"/>.
+            </summary>
+        </member>
+        <member name="M:LightInject.Web.LightInjectHttpModuleInitializer.Initialize">
+            <summary>
+            Executed before the <see cref="T:System.Web.HttpApplication"/> is started and registers
+            the <see cref="T:LightInject.Web.LightInjectHttpModule"/> with the current <see cref="T:System.Web.HttpApplication"/>.
+            </summary>
+        </member>
+        <member name="T:LightInject.Web.LightInjectHttpModule">
+            <summary>
+            A <see cref="T:System.Web.IHttpModule"/> that ensures that services registered
+            with the <see cref="T:LightInject.PerScopeLifetime"/> lifetime is scoped per web request.
+            </summary>
+        </member>
+        <member name="M:LightInject.Web.LightInjectHttpModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+            <param name="context">An <see cref="T:System.Web.HttpApplication"/> that provides access to the methods, properties, and events common to all application objects within an ASP.NET application </param>
+        </member>
+        <member name="M:LightInject.Web.LightInjectHttpModule.Dispose">
+            <summary>
+            Disposes of the resources (other than memory) used by the module that implements <see cref="T:System.Web.IHttpModule"/>.
+            </summary>
+        </member>
+        <member name="T:LightInject.Web.PerWebRequestScopeManager">
+            <summary>
+            A <see cref="T:LightInject.ScopeManager"/> that manages scope per web request.
+            </summary>
+        </member>
+        <member name="M:LightInject.Web.PerWebRequestScopeManager.#ctor(LightInject.IServiceFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LightInject.Web.PerWebRequestScopeManager"/> class.        
+            </summary>
+            <param name="serviceFactory">The <see cref="T:LightInject.IServiceFactory"/> to be associated with this <see cref="T:LightInject.ScopeManager"/>.</param>
+        </member>
+        <member name="P:LightInject.Web.PerWebRequestScopeManager.CurrentScope">
+            <summary>
+            Gets or sets the current <see cref="T:LightInject.Scope"/>.
+            </summary>
+        </member>
+        <member name="M:LightInject.Web.PerWebRequestScopeManager.EndContextScope">
+            <summary>
+            Ends the scope associated with the current <see cref="T:System.Web.HttpContext"/>.
+            </summary>
+        </member>
+        <member name="T:LightInject.Web.PerWebRequestScopeManagerProvider">
+            <summary>
+            An <see cref="T:LightInject.IScopeManagerProvider"/> that provides the <see cref="T:LightInject.ScopeManager"/>
+            used by the current <see cref="T:System.Web.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:LightInject.Web.PerWebRequestScopeManagerProvider.CreateScopeManager(LightInject.IServiceFactory)">
+            <summary>
+            Creates a new <see cref="T:LightInject.IScopeManager"/> instance.
+            </summary>
+            <param name="serviceFactory">The <see cref="T:LightInject.IServiceFactory"/> to be associated with the <see cref="T:LightInject.IScopeManager"/>.</param>
+            <returns>
+            <see cref="T:LightInject.IScopeManager"/>.
+            </returns>
+        </member>
+    </members>
+</doc>

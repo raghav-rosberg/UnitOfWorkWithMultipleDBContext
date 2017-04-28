@@ -1,0 +1,6 @@
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\UoW_MultipleDBContext.Web.Core.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\UoW_MultipleDBContext.Web.Core.pdb
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.dll
+D:\GitHub\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.pdb
