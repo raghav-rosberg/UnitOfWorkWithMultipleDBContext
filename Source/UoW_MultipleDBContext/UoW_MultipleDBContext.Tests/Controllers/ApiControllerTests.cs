@@ -38,22 +38,23 @@ namespace UoW_MultipleDBContext.Tests.Controllers
                 new Category {Id = 2, Name = "Test2", Description = "Test2Desc"},
                 new Category {Id = 3, Name = "Test3", Description = "Test3Desc"}
             }.AsEnumerable();
-            _firstDbContextUoW.Setup(x => x.CategoryRepository.GetAll()).Returns(fakeCategories);
+            _firstDbContextUoW.Setup(x => x.CategoryRepository.GetAllAsync())
+                .ReturnsAsync(fakeCategories.ToList());
             var controller = new CategoryController(_firstDbContextUoW.Object);
             controller.Request = new HttpRequestMessage();
             controller.Configuration = new HttpConfiguration();
 
             // Act
             var httpcontentResult = await controller.GetAll();
-            
+
             // Assert
             Assert.IsNotNull(httpcontentResult);
             Assert.IsNotNull(httpcontentResult.Content);
             Assert.AreEqual(HttpStatusCode.Found, httpcontentResult.StatusCode);
-            Assert.IsInstanceOf<ObjectContent<IEnumerable<Category>>>(httpcontentResult.Content);
+            Assert.IsInstanceOf<ObjectContent<List<Category>>>(httpcontentResult.Content);
 
-            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<IEnumerable<Category>>)));
-            var contentResult = await httpcontentResult.Content.ReadAsAsync<IEnumerable<Category>>();
+            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<List<Category>>)));
+            var contentResult = await httpcontentResult.Content.ReadAsAsync<List<Category>>();
             Assert.IsNotNull(contentResult);
             Assert.AreEqual(3, contentResult.Count());
         }
@@ -68,9 +69,11 @@ namespace UoW_MultipleDBContext.Tests.Controllers
                 new Department {Id = 2, Name = "Test2"},
                 new Department {Id = 3, Name = "Test3"}
             }.AsEnumerable();
-            _secondDbContextUoW.Setup(x => x.DepartmentRepository.GetAll()).Returns(fakeDepartments);
+            _secondDbContextUoW.Setup(x => x.DepartmentRepository.GetAllAsync())
+                  .ReturnsAsync(fakeDepartments.ToList());
             var controller = new DepartmentController(_secondDbContextUoW.Object);
-
+            controller.Request = new HttpRequestMessage();
+            controller.Configuration = new HttpConfiguration();
             // Act
             var httpcontentResult = await controller.GetAll();
 
@@ -78,10 +81,10 @@ namespace UoW_MultipleDBContext.Tests.Controllers
             Assert.IsNotNull(httpcontentResult);
             Assert.IsNotNull(httpcontentResult.Content);
             Assert.AreEqual(HttpStatusCode.Found, httpcontentResult.StatusCode);
-            Assert.IsInstanceOf<ObjectContent<IEnumerable<Department>>>(httpcontentResult.Content);
+            Assert.IsInstanceOf<ObjectContent<List<Department>>>(httpcontentResult.Content);
 
-            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<IEnumerable<Department>>)));
-            var contentResult = await httpcontentResult.Content.ReadAsAsync<IEnumerable<Department>>();
+            Assert.That(httpcontentResult.Content, Is.TypeOf(typeof(ObjectContent<List<Department>>)));
+            var contentResult = await httpcontentResult.Content.ReadAsAsync<List<Department>>();
             Assert.IsNotNull(contentResult);
             Assert.AreEqual(3, contentResult.Count());
         }
