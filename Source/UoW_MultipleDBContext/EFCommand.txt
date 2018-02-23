@@ -1,0 +1,8 @@
+Enable-Migrations -ContextTypeName  UoW_MultipleDBContext.Data.DBContexts.FirstDbContext -MigrationsDirectory FirstDBMigrations
+Enable-Migrations -ContextTypeName  UoW_MultipleDBContext.Data.DBContexts.SecondDbContext -MigrationsDirectory SecondDBMigrations
+
+Add-Migration Initial -ConfigurationTypeName UoW_MultipleDBContext.Data.FirstDBMigrations.Configuration
+Add-Migration Initial -ConfigurationTypeName UoW_MultipleDBContext.Data.SecondDBMigrations.Configuration
+
+update-database -ConfigurationTypeName UoW_MultipleDBContext.Data.FirstDBMigrations.Configuration -Verbose
+update-database -ConfigurationTypeName UoW_MultipleDBContext.Data.SecondDBMigrations.Configuration -Verbose
