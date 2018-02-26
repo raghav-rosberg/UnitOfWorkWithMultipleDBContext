@@ -8,7 +8,7 @@ namespace UoW_MultipleDBContext.Data.DBContexts
     {
         static FirstDbContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<FirstDbContext>());
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<FirstDbContext>());
         }
 
         public IDbSet<Category> Categories { get; set; }

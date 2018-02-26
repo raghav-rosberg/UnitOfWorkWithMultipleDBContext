@@ -144,7 +144,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Controllers\ApiControllerTests.cs" />
+    <Compile Include="WebAPI\Controllers\ApiControllerTests.cs" />
     <Compile Include="Data\Repositories\CategoryRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,7 +176,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
