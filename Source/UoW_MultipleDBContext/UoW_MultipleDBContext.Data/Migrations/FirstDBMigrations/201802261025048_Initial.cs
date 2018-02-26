@@ -1,4 +1,4 @@
-namespace UoW_MultipleDBContext.Data.FirstDBMigrations
+namespace UoW_MultipleDBContext.Data.Migrations.FirstDBMigrations
 {
     using System;
     using System.Data.Entity.Migrations;

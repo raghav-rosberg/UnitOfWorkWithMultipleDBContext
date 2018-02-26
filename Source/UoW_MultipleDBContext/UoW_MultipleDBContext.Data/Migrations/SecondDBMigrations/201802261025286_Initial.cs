@@ -1,4 +1,4 @@
-namespace UoW_MultipleDBContext.Data.SecondDBMigrations
+namespace UoW_MultipleDBContext.Data.Migrations.SecondDBMigrations
 {
     using System;
     using System.Data.Entity.Migrations;

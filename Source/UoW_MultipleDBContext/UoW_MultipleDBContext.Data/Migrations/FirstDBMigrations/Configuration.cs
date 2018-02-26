@@ -1,4 +1,4 @@
-namespace UoW_MultipleDBContext.Data.FirstDBMigrations
+namespace UoW_MultipleDBContext.Data.Migrations.FirstDBMigrations
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,7 @@ namespace UoW_MultipleDBContext.Data.FirstDBMigrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"FirstDBMigrations";
+            MigrationsDirectory = @"Migrations\FirstDBMigrations";
         }
 
         protected override void Seed(UoW_MultipleDBContext.Data.DBContexts.FirstDbContext context)

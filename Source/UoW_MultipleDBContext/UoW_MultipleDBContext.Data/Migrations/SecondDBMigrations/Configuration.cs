@@ -1,4 +1,4 @@
-namespace UoW_MultipleDBContext.Data.SecondDBMigrations
+namespace UoW_MultipleDBContext.Data.Migrations.SecondDBMigrations
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,7 @@ namespace UoW_MultipleDBContext.Data.SecondDBMigrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"SecondDBMigrations";
+            MigrationsDirectory = @"Migrations\SecondDBMigrations";
         }
 
         protected override void Seed(UoW_MultipleDBContext.Data.DBContexts.SecondDbContext context)
