@@ -8,7 +8,6 @@ C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBCon
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\UoW_MultipleDBContext.Web.Core.pdb
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.dll
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.xml
-C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.csprojResolveAssemblyReference.cache
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.csproj.CoreCompileInputs.cache
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.dll
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.pdb

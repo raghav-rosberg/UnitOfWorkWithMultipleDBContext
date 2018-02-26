@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Entity", "UoW_MultipleDBContext.Entity\UoW_MultipleDBContext.Entity.csproj", "{9C184254-262C-4B23-A738-B167D2DBDDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests", "UoW_MultipleDBContext.Tests\UoW_MultipleDBContext.Tests.csproj", "{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests.Unit", "UoW_MultipleDBContext.Tests\UoW_MultipleDBContext.Tests.Unit.csproj", "{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Web.API", "UoW_MultipleDBContext.Web.API\UoW_MultipleDBContext.Web.API.csproj", "{112F2DD9-ED16-40C2-9B34-5A5DB61287EE}"
 EndProject
@@ -26,6 +26,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Service", "UoW_MultipleDBContext.Service\UoW_MultipleDBContext.Service.csproj", "{F3082D41-A6BB-4247-AAAF-095D62A73278}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1156384A-0DB5-4379-9922-935883B65594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{A2C440C9-9228-4511-ACE1-A272F0A19332}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{2ABA0068-EACD-4AF6-8736-531C0AB39138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{D7009F48-D22B-44F2-BA1A-91CF161FE9C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +72,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8} = {A2C440C9-9228-4511-ACE1-A272F0A19332}
+		{A2C440C9-9228-4511-ACE1-A272F0A19332} = {1156384A-0DB5-4379-9922-935883B65594}
+		{2ABA0068-EACD-4AF6-8736-531C0AB39138} = {1156384A-0DB5-4379-9922-935883B65594}
+		{D7009F48-D22B-44F2-BA1A-91CF161FE9C7} = {1156384A-0DB5-4379-9922-935883B65594}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27E0D95B-68E0-42CD-B306-6440B49112EA}
