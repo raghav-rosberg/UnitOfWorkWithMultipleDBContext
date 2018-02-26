@@ -6,9 +6,15 @@ namespace UoW_MultipleDBContext.Data.DBContexts
 {
     public class FirstDbContext : DbContext
     {
-        static FirstDbContext()
+        //static FirstDbContext()
+        //{
+        //    //Database.SetInitializer(new CreateDatabaseIfNotExists<FirstDbContext>());
+        //}
+        //private string _nameOrConnectionStrfing;
+        public FirstDbContext() : base("Name=FirstDbContext")
         {
-            //Database.SetInitializer(new CreateDatabaseIfNotExists<FirstDbContext>());
+            //InstanceId = Guid.NewGuid();
+            //_nameOrConnectionString = nameOrConnectionString;
         }
 
         public IDbSet<Category> Categories { get; set; }

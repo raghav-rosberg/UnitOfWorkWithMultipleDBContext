@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using UoW_MultipleDBContext.Data.DBContexts;
 using UoW_MultipleDBContext.Data.Infrastructure;
 using UoW_MultipleDBContext.Data.Repositories;
 using UoW_MultipleDBContext.Data.Repositories.Interface;
@@ -26,10 +27,10 @@ namespace UoW_MultipleDBContext.Tests.Unit.Data.Repositories
             {
                 //builder.RegisterModule<CommonLoggingModule>();
                 //builder.RegisterGeneric(typeof(UnitOfWork<>)).As(typeof(IUnitOfWork<>));
+                builder.RegisterType<FirstDbContext>().InstancePerLifetimeScope();
             });
-            AutoSubstitute.Resolve<DbContext>();
-            AutoSubstitute.Resolve<IDBOneRepositories>();
-            AutoSubstitute.Resolve<ICategoryRepository>();
+            //AutoSubstitute.Resolve<IDBOneRepositories>();
+            //AutoSubstitute.Resolve<ICategoryRepository>();
         }
 
         [Test]

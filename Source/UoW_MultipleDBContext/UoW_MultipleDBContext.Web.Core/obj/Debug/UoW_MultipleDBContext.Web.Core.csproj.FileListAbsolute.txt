@@ -11,3 +11,11 @@ C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBCon
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.csproj.CoreCompileInputs.cache
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.dll
 C:\--CodeRef\GitHub.Com\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.pdb
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\UoW_MultipleDBContext.Web.Core.dll
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\UoW_MultipleDBContext.Web.Core.pdb
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.dll
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\bin\Debug\Newtonsoft.Json.xml
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.csprojResolveAssemblyReference.cache
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.csproj.CoreCompileInputs.cache
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.dll
+C:\NASCO-TECH\GitHUB\UnitOfWorkWithMultipleDBContext\Source\UoW_MultipleDBContext\UoW_MultipleDBContext.Web.Core\obj\Debug\UoW_MultipleDBContext.Web.Core.pdb
