@@ -327,3 +327,5 @@ ASALocalRun/
 /Source/UoW_MultipleDBContext/UoW_MultipleDBContext.Web.API/bin
 /Source/UoW_MultipleDBContext/UoW_MultipleDBContext.Entity/bin
 /Source/UoW_MultipleDBContext/UoW_MultipleDBContext.Entity/obj
+/Source/UoW_MultipleDBContext/UoW_MultipleDBContext.Data/bin
+/Source/UoW_MultipleDBContext/UoW_MultipleDBContext.Data/obj
