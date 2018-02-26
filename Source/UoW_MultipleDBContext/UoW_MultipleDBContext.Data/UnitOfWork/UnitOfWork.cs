@@ -34,7 +34,4 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
                 DataContext.Dispose();
         }
     }
-
-   
-    
 }

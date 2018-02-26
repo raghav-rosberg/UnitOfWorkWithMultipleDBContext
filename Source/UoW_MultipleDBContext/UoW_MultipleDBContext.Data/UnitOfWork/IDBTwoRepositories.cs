@@ -8,5 +8,6 @@ namespace UoW_MultipleDBContext.Data.UnitOfWork
     public interface IDBTwoRepositories : IUnitOfWork<SecondDbContext>
     {
         IRepository<Department> DepartmentRepository { get; }
+        IRepository<Employee> EmployeeRepository { get; }
     }
 }
