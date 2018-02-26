@@ -65,17 +65,38 @@
   <ItemGroup>
     <Compile Include="DBContexts\FirstDbContext.cs" />
     <Compile Include="DBContexts\SecondDbContext.cs" />
+    <Compile Include="FirstDBMigrations\201802260617070_Initial.cs" />
+    <Compile Include="FirstDBMigrations\201802260617070_Initial.Designer.cs">
+      <DependentUpon>201802260617070_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstDBMigrations\Configuration.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="UnitOfWork\DBOneRepositories.cs" />
+    <Compile Include="UnitOfWork\DBTwoRepository.cs" />
+    <Compile Include="UnitOfWork\IDBOneRepositories.cs" />
     <Compile Include="Repositories\Interface\ICategoryRepository.cs" />
+    <Compile Include="SecondDBMigrations\201802260620192_Initial.cs" />
+    <Compile Include="SecondDBMigrations\201802260620192_Initial.Designer.cs">
+      <DependentUpon>201802260620192_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondDBMigrations\Configuration.cs" />
+    <Compile Include="UnitOfWork\IDBTwoRepositories.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="FirstDBMigrations\201802260617070_Initial.resx">
+      <DependentUpon>201802260617070_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondDBMigrations\201802260620192_Initial.resx">
+      <DependentUpon>201802260620192_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
