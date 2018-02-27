@@ -10,6 +10,7 @@ using UoW_MultipleDBContext.Web.API.Models;
 using UoW_MultipleDBContext.Data.UnitOfWork;
 using UoW_MultipleDBContext.Data.DBContexts;
 using System.Threading.Tasks;
+using UoW_MultipleDBContext.Data.Repositories;
 
 namespace UoW_MultipleDBContext.Web.API.Controllers
 {
@@ -17,18 +18,19 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
     [RoutePrefix("api/Category")]
     public class CategoryController : ApiController
     {
-        private readonly IUnitOfWork<FirstDbContext> _unitOfWork;
-        
-        public CategoryController(IUnitOfWork<FirstDbContext> unitOfWork)
+        private readonly IDBOneRepositories dBOneRepositories;
+        public CategoryController(
+            IDBOneRepositories dBOneRepositories
+            )
         {
-            _unitOfWork = unitOfWork;
+            this.dBOneRepositories = dBOneRepositories;
         }
 
         [Route("GetAll")]
         [HttpGet]
         public async Task<HttpResponseMessage> GetAll()
         {
-            var data = await _unitOfWork.CategoryRepository.GetAllAsync();
+            var data = await dBOneRepositories.CategoryRepository.GetAllAsync();//_unitOfWork.CategoryRepository.GetAllAsync();
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -36,7 +38,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> GetById(int id)
         {
-            var data = await _unitOfWork.CategoryRepository.GetAsync(x => x.Id == id);
+            var data = await dBOneRepositories.CategoryRepository.GetAsync(x => x.Id == id);//_unitOfWork.CategoryRepository.GetAsync(x => x.Id == id);
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -44,7 +46,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> GetByName(string key)
         {
-            var data = await _unitOfWork.CategoryRepository.GetAsync(x => x.Name.Contains(key));
+            var data = await dBOneRepositories.CategoryRepository.GetAsync(x => x.Name.Contains(key));//_unitOfWork.CategoryRepository.GetAsync(x => x.Name.Contains(key));
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -52,7 +54,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         [HttpGet]
         public HttpResponseMessage GetCategoryWithExpenses()
         {
-            var data = _unitOfWork.CategoryRepository.GetCategoryWithExpenses();
+            var data = dBOneRepositories.CategoryRepository.GetCategoryWithExpenses();
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -61,8 +63,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Insert(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.CategoryRepository.Insert(entity);
-            var result = _unitOfWork.Commit();
+            dBOneRepositories.CategoryRepository.Insert(entity);
+            var result = dBOneRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.Created) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
@@ -71,8 +73,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Update(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.CategoryRepository.Update(entity);
-            var result = _unitOfWork.Commit();
+            dBOneRepositories.CategoryRepository.Update(entity);
+            var result = dBOneRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.Accepted) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
@@ -82,8 +84,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Delete(Category entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.CategoryRepository.Delete(entity.Id);
-            var result = _unitOfWork.Commit();
+            dBOneRepositories.CategoryRepository.Delete(entity.Id);
+            var result = dBOneRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.MovedPermanently) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }

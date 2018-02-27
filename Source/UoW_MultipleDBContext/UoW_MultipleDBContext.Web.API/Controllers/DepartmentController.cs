@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
-using Newtonsoft.Json;
-using UoW_MultipleDBContext.Entity;
-using UoW_MultipleDBContext.Web.API.Models;
-using UoW_MultipleDBContext.Data.UnitOfWork;
-using UoW_MultipleDBContext.Data.DBContexts;
 using System.Threading.Tasks;
+using System.Web.Http;
+using UoW_MultipleDBContext.Data.UnitOfWork;
+using UoW_MultipleDBContext.Entity;
 
 namespace UoW_MultipleDBContext.Web.API.Controllers
 {
@@ -17,18 +12,17 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
     [RoutePrefix("api/Department")]
     public class DepartmentController : ApiController
     {
-        private readonly IUnitOfWork<SecondDbContext> _unitOfWork;
-
-        public DepartmentController(IUnitOfWork<SecondDbContext> unitOfWork)
+        private readonly IDBTwoRepositories dBTwoRepositories;
+        public DepartmentController(IDBTwoRepositories dBTwoRepositories)
         {
-            _unitOfWork = unitOfWork;
+            this.dBTwoRepositories = dBTwoRepositories;
         }
 
         [Route("GetAll")]
         [HttpGet]
         public async Task<HttpResponseMessage> GetAll()
         {
-            var data = await _unitOfWork.DepartmentRepository.GetAllAsync();
+            var data = await dBTwoRepositories.DepartmentRepository.GetAllAsync();
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -37,7 +31,7 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         // GET /api/category/5
         public async Task<HttpResponseMessage> Get(int id)
         {
-            var data = await _unitOfWork.DepartmentRepository.GetAsync(x => x.Id == id);
+            var data = await dBTwoRepositories.DepartmentRepository.GetAsync(x => x.Id == id);
             return Request.CreateResponse(HttpStatusCode.Found, data);
         }
 
@@ -47,8 +41,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Insert(Department entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.DepartmentRepository.Insert(entity);
-            var result = _unitOfWork.Commit();
+            dBTwoRepositories.DepartmentRepository.Insert(entity);
+            var result = dBTwoRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.Created) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
@@ -58,8 +52,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Update(Department entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.DepartmentRepository.Update(entity);
-            var result = _unitOfWork.Commit();
+            dBTwoRepositories.DepartmentRepository.Update(entity);
+            var result = dBTwoRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.Accepted) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
@@ -69,8 +63,8 @@ namespace UoW_MultipleDBContext.Web.API.Controllers
         public HttpResponseMessage Delete(Department entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
-            _unitOfWork.DepartmentRepository.Delete(entity.Id);
-            var result = _unitOfWork.Commit();
+            dBTwoRepositories.DepartmentRepository.Delete(entity.Id);
+            var result = dBTwoRepositories.Commit();
             return result == 1 ? Request.CreateResponse(HttpStatusCode.MovedPermanently) : Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }

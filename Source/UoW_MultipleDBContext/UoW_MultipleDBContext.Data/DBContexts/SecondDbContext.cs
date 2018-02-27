@@ -8,7 +8,7 @@ namespace UoW_MultipleDBContext.Data.DBContexts
     {
         static SecondDbContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<SecondDbContext>());
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<SecondDbContext>());
         }
 
         public IDbSet<Department> Departments { get; set; }

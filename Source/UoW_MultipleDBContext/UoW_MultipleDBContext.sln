@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Data", "UoW_MultipleDBContext.Data\UoW_MultipleDBContext.Data.csproj", "{A183D1D7-5C8F-453C-A237-371E508A095D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Entity", "UoW_MultipleDBContext.Entity\UoW_MultipleDBContext.Entity.csproj", "{9C184254-262C-4B23-A738-B167D2DBDDC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests", "UoW_MultipleDBContext.Tests\UoW_MultipleDBContext.Tests.csproj", "{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Tests.Unit", "UoW_MultipleDBContext.Tests\UoW_MultipleDBContext.Tests.Unit.csproj", "{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Web.API", "UoW_MultipleDBContext.Web.API\UoW_MultipleDBContext.Web.API.csproj", "{112F2DD9-ED16-40C2-9B34-5A5DB61287EE}"
 EndProject
@@ -19,6 +19,21 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Web.Async", "UoW_MultipleDBContext.Web.Async\UoW_MultipleDBContext.Web.Async.csproj", "{A13176E1-CA40-41C0-9873-D913309B7FE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Web.Core", "UoW_MultipleDBContext.Web.Core\UoW_MultipleDBContext.Web.Core.csproj", "{A56EF912-879F-48CA-899C-25B05E2AB45B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9690CE89-455E-443A-82DE-8C4EEE87C000}"
+	ProjectSection(SolutionItems) = preProject
+		EFCommand.txt = EFCommand.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW_MultipleDBContext.Service", "UoW_MultipleDBContext.Service\UoW_MultipleDBContext.Service.csproj", "{F3082D41-A6BB-4247-AAAF-095D62A73278}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1156384A-0DB5-4379-9922-935883B65594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{A2C440C9-9228-4511-ACE1-A272F0A19332}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{2ABA0068-EACD-4AF6-8736-531C0AB39138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{D7009F48-D22B-44F2-BA1A-91CF161FE9C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,8 +65,21 @@ Global
 		{A56EF912-879F-48CA-899C-25B05E2AB45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A56EF912-879F-48CA-899C-25B05E2AB45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A56EF912-879F-48CA-899C-25B05E2AB45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3082D41-A6BB-4247-AAAF-095D62A73278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3082D41-A6BB-4247-AAAF-095D62A73278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3082D41-A6BB-4247-AAAF-095D62A73278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3082D41-A6BB-4247-AAAF-095D62A73278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE9A45ED-B2B8-40A3-89F8-438A5787E3C8} = {A2C440C9-9228-4511-ACE1-A272F0A19332}
+		{A2C440C9-9228-4511-ACE1-A272F0A19332} = {1156384A-0DB5-4379-9922-935883B65594}
+		{2ABA0068-EACD-4AF6-8736-531C0AB39138} = {1156384A-0DB5-4379-9922-935883B65594}
+		{D7009F48-D22B-44F2-BA1A-91CF161FE9C7} = {1156384A-0DB5-4379-9922-935883B65594}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27E0D95B-68E0-42CD-B306-6440B49112EA}
 	EndGlobalSection
 EndGlobal

@@ -56,13 +56,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="Category.cs" />
+    <Compile Include="DB1\Category.cs" />
     <Compile Include="Custom\CategoryWithExpense.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Expense.cs" />
+    <Compile Include="DB2\Department.cs" />
+    <Compile Include="DB2\Employee.cs" />
+    <Compile Include="DB1\Expense.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="DB1\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
